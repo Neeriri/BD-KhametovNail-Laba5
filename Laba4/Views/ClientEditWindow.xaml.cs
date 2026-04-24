@@ -2,89 +2,48 @@ using System;
 using System.Windows;
 using Laba4.Models;
 
-namespace Laba4.Views
+namespace Laba4
 {
     public partial class ClientEditWindow : Window
     {
         private Client _client;
         private bool _isNew;
-        private MarketingDBContext _context;
-
-        public string Title => _isNew ? "Добавление клиента" : "Редактирование клиента";
-
-        public Client CurrentClient => _client;
-
+          
+      
         public ClientEditWindow(Client client)
         {
-            InitializeComponent();
-            
-            if (client == null)
-            {
-                _isNew = true;
-                _client = new Client();
-            }
-            else
-            {
-                _isNew = false;
-                _client = client;
-            }
-            
+
+  InitializeComponent();
+            _isNew = client == null;
+            _client = _isNew ? new Client() : client;
+
             DataContext = this;
-            LoadData();
-        }
-
-        private void LoadData()
-        {
-            TextBoxFullName.Text = _client.FullName ?? "";
-            TextBoxEmail.Text = _client.Email ?? "";
-            TextBoxPhone.Text = _client.Phone ?? "";
-            TextBoxAddress.Text = _client.Address ?? "";
-        }
-
-        private void SaveData()
-        {
-            _client.FullName = TextBoxFullName.Text.Trim();
-            _client.Email = TextBoxEmail.Text.Trim();
-            _client.Phone = TextBoxPhone.Text.Trim();
-            _client.Address = TextBoxAddress.Text.Trim();
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                SaveData();
-
-                if (string.IsNullOrEmpty(_client.FullName))
+                if (string.IsNullOrWhiteSpace(_client.FullName))
                 {
                     MessageBox.Show("ФИО обязательно для заполнения!", "Ошибка",
                         MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
-                _context = new MarketingDBContext();
+                using var context = new MarketingDBContext();
 
                 if (_isNew)
                 {
-                    _context.Clients.Add(_client);
-                    MessageBox.Show("Клиент успешно добавлен!", "Успех",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    context.Clients.Add(_client);
                 }
                 else
                 {
-                    var existingClient = _context.Clients.Find(_client.ClientID);
-                    if (existingClient != null)
-                    {
-                        existingClient.FullName = _client.FullName;
-                        existingClient.Email = _client.Email;
-                        existingClient.Phone = _client.Phone;
-                        existingClient.Address = _client.Address;
-                        MessageBox.Show("Данные клиента успешно обновлены!", "Успех",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
+                    context.Clients.Attach(_client);
+                    context.Entry(_client).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 }
 
-                _context.SaveChanges();
+                context.SaveChanges();
                 DialogResult = true;
                 Close();
             }

@@ -8,11 +8,18 @@ namespace Laba4.Views
 {
     public partial class ClientsWindow : Window
     {
+        protected override void OnClosed(EventArgs e)
+        {
+            _context?.Dispose(); 
+            base.OnClosed(e);
+        }
+
         private MarketingDBContext _context;
 
         public ClientsWindow()
         {
             InitializeComponent();
+            _context = new MarketingDBContext(); 
             LoadData();
         }
 
@@ -20,12 +27,11 @@ namespace Laba4.Views
         {
             try
             {
-                _context = new MarketingDBContext();
                 DataGridClients.ItemsSource = _context.Clients.ToList();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка загрузки данных: {ex.Message}", "Ошибка", 
+                MessageBox.Show($"Ошибка загрузки данных: {ex.Message}", "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }

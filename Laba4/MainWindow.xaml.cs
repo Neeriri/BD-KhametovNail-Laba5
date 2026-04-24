@@ -1,7 +1,5 @@
 using System;
 using System.Windows;
-using Laba4.Views;
-
 namespace Laba4
 {
     public partial class MainWindow : Window
@@ -24,5 +22,6 @@ namespace Laba4
             employeesWindow.Show();
             this.Close();
         }
+
     }
 }
