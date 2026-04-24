@@ -23,6 +23,5 @@ namespace Laba4
             this.Close();
         }
 
-        
     }
 }
