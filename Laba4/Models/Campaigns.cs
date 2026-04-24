@@ -29,7 +29,6 @@ namespace Laba4.Models
         [Column("статус")]
         public string Status { get; set; }
 
-        // Navigation property
         public virtual Client Client { get; set; }
     }
 }

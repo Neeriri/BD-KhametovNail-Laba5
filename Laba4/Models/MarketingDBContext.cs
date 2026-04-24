@@ -1,6 +1,7 @@
 using System.Data.Entity;
 using Laba4.Models;
-
+using Microsoft.EntityFrameworkCore;
+using System.Windows;
 namespace Laba4.Models
 {
     public class MarketingDBContext : DbContext
@@ -16,7 +17,6 @@ namespace Laba4.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Configure table mappings if needed
             base.OnModelCreating(modelBuilder);
         }
     }
