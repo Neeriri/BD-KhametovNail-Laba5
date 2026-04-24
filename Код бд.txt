@@ -1,0 +1,258 @@
+CREATE TABLE Clients (
+    ClientID INT PRIMARY KEY IDENTITY(1,1),
+    FullName NVARCHAR(255) NOT NULL,
+    Email NVARCHAR(255),
+    Phone NVARCHAR(20),
+    Address NVARCHAR(500)
+);
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY IDENTITY(1,1),
+    FullName NVARCHAR(255) NOT NULL,
+    Position NVARCHAR(100),
+    Email NVARCHAR(255),
+    HourlyRate DECIMAL(10,2)
+);
+CREATE TABLE Campaigns (
+    CampaignID INT PRIMARY KEY IDENTITY(1,1),
+    CampaignName NVARCHAR(255) NOT NULL,
+    ClientID INT NOT NULL,
+    Budget DECIMAL(15,2),
+    StartDate DATE,
+    EndDate DATE,
+    Status NVARCHAR(50),
+    CONSTRAINT FK_Campaigns_Clients FOREIGN KEY (ClientID) 
+        REFERENCES Clients(ClientID)
+);
+CREATE TABLE Channels (
+    ChannelID INT PRIMARY KEY IDENTITY(1,1),
+    ChannelName NVARCHAR(255) NOT NULL,
+    ChannelType NVARCHAR(100),
+    PlacementCost DECIMAL(10,2)
+);
+CREATE TABLE Tasks (
+    TaskID INT PRIMARY KEY IDENTITY(1,1),
+    CampaignID INT NOT NULL,
+    Description NVARCHAR(500),
+    ExecutorID INT NOT NULL,
+    DueDate DATE,
+    Status NVARCHAR(50),
+    CONSTRAINT FK_Tasks_Campaigns FOREIGN KEY (CampaignID) 
+        REFERENCES Campaigns(CampaignID),
+    CONSTRAINT FK_Tasks_Employees FOREIGN KEY (ExecutorID) 
+        REFERENCES Employees(EmployeeID)
+);
+CREATE TABLE Expenses (
+    ExpenseID INT PRIMARY KEY IDENTITY(1,1),
+    CampaignID INT NOT NULL,
+    ExpenseItem NVARCHAR(255),
+    Amount DECIMAL(15,2),
+    ExpenseDate DATE,
+    CONSTRAINT FK_Expenses_Campaigns FOREIGN KEY (CampaignID) 
+        REFERENCES Campaigns(CampaignID)
+);
+CREATE TABLE Results (
+    ResultID INT PRIMARY KEY IDENTITY(1,1),
+    CampaignID INT NOT NULL,
+    ChannelID INT NOT NULL,
+    Impressions INT,
+    Clicks INT,
+    ConversionRate DECIMAL(5,2),
+    ReportDate DATE,
+    CONSTRAINT FK_Results_Campaigns FOREIGN KEY (CampaignID) 
+        REFERENCES Campaigns(CampaignID),
+    CONSTRAINT FK_Results_Channels FOREIGN KEY (ChannelID) 
+        REFERENCES Channels(ChannelID)
+);
+CREATE VIEW v_campaign_results1 AS
+SELECT 
+    c.название as кампания,
+    ch.Название as канал,
+    r.показы,
+    r.клики,
+    r.конверсия_%,
+    r.дата_отчёта
+FROM Results r
+INNER JOIN Campaigns c ON r.id_кампании = c.id_кампании
+INNER JOIN Channels ch ON r.id_канала = ch.Id_канала_размещенения;
+GO
+CREATE VIEW cpm AS
+SELECT Campaigns.статус AS "Status"
+FROM Campaigns
+INNER JOIN Clients ON Campaigns.id_клиента = Clients.Id_Клиента;
+CREATE VIEW v_employee_tasks AS
+SELECT 
+    t.id_задачи,
+    t.описание,
+    e.ФИО as сотрудник,
+    t.срок_выполнения,
+    t.статус
+FROM Tasks t
+INNER JOIN Employees e ON t.id_исполнителя = e.ID_сотрудника;
+GO
+CREATE VIEW v_campaign_expenses AS
+SELECT 
+    c.название as кампания,
+    e.статья_расхода,
+    e.сумма,
+    e.дата
+FROM Expenses e
+INNER JOIN Campaigns c ON e.id_кампании = c.id_кампании;
+GO
+CREATE VIEW v_active_campaigns AS
+SELECT 
+    c.id_кампании,
+    c.название,
+    cl.Фио as клиент,
+    c.бюджет,
+    c.статус
+FROM Campaigns c
+INNER JOIN Clients cl ON c.id_клиента = cl.Id_Клиента
+WHERE c.статус = 'Активна';
+GO
+
+CREATE PROCEDURE sp_add_client1
+    @Id_Клиента int,
+    @email VARCHAR(100),
+    @Фио VARCHAR(100),
+    @Телефон VARCHAR(20),
+    @адрес VARCHAR(200)
+AS
+BEGIN
+    INSERT INTO Clients ( Id_Клиента,email, Фио, Телефон, адрес)
+    VALUES ( @Id_Клиента, @email, @Фио, @Телефон, @адрес);
+END;
+GO
+CREATE PROCEDURE sp_update_campaign_status
+    @CampaignID INT,
+    @NewStatus VARCHAR(50)
+AS
+BEGIN
+    UPDATE Campaigns
+    SET статус = @NewStatus
+    WHERE id_кампании = @CampaignID;
+END;
+GO
+CREATE PROCEDURE sp_get_campaign_budget
+    @CampaignID INT
+AS
+BEGIN
+    SELECT бюджет, название
+    FROM Campaigns
+    WHERE id_кампании = @CampaignID;
+END;
+GO
+
+CREATE PROCEDURE sp_add_task1
+@id_задачи INT,
+    @id_кампании INT,
+    @описание TEXT,
+    @id_исполнителя INT,
+    @срок_выполнения DATE,
+    @статус VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Tasks (id_задачи,id_кампании, описание, id_исполнителя, срок_выполнения, статус)
+    VALUES (@id_задачи,@id_кампании, @описание, @id_исполнителя, @срок_выполнения, @статус);
+END;
+GO
+CREATE PROCEDURE sp_calc_total_expenses
+    @CampaignID INT
+AS
+BEGIN
+    SELECT SUM(сумма) as total_expenses
+    FROM Expenses
+    WHERE id_кампании = @CampaignID;
+END;
+GO
+
+CREATE TRIGGER tr_check_campaign_dates
+ON Campaigns
+INSTEAD OF INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM inserted
+        WHERE дата_окончания < дата_начала
+    )
+    BEGIN
+        RAISERROR('Дата окончания не может быть раньше даты начала', 16, 1);
+        ROLLBACK;
+    END
+    ELSE
+    BEGIN
+        INSERT INTO Campaigns (название, id_клиента, бюджет, дата_начала, дата_окончания, статус)
+        SELECT название, id_клиента, бюджет, дата_начала, дата_окончания, статус
+        FROM inserted;
+    END
+END;
+GO
+CREATE TRIGGER tr_set_default_campaign_status
+ON Campaigns
+AFTER INSERT
+AS
+BEGIN
+    UPDATE Campaigns
+    SET статус = 'Планируется'
+    WHERE id_кампании IN (SELECT id_кампании FROM inserted)
+    AND статус IS NULL;
+END;
+GO
+CREATE TRIGGER tr_check_budget_limit
+ON Expenses
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @total_expenses DECIMAL(10,2);
+    DECLARE @budget DECIMAL(10,2);
+    DECLARE @campaign_id INT;
+    
+    SELECT @campaign_id = id_кампании FROM inserted;
+    
+    SELECT @total_expenses = SUM(сумма)
+    FROM Expenses
+    WHERE id_кампании = @campaign_id;
+    
+    SELECT @budget = бюджет
+    FROM Campaigns
+    WHERE id_кампании = @campaign_id;
+    
+    IF @total_expenses > @budget
+    BEGIN
+        RAISERROR('Расходы превышают бюджет кампании', 16, 1);
+        ROLLBACK;
+    END
+END;
+GO
+CREATE TRIGGER tr_log_task_status_change
+ON Tasks
+AFTER UPDATE
+AS
+BEGIN
+    IF UPDATE(статус)
+    BEGIN
+        DECLARE @task_id INT, @new_status VARCHAR(50);
+        SELECT @task_id = id_задачи, @new_status = статус FROM inserted;
+        
+        PRINT 'Задача ' + CAST(@task_id AS VARCHAR) + ' изменила статус на: ' + @new_status;
+    END
+END;
+GO
+
+
+CREATE TRIGGER tr_check_conversion1
+ON Results
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    IF EXISTS (
+        SELECT 1 FROM inserted
+        WHERE [конверсия_%] > 100 OR [конверсия_%] < 0
+    )
+    BEGIN
+        RAISERROR('Ошибка: Конверсия должна быть в диапазоне от 0 до 100!', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END;
+GO
