@@ -3,12 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|c:\\users\\neeriri\\bd-khametovnail-laba5\\laba4\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|c:\\users\\neeriri\\bd-khametovnail-laba5\\laba4\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|c:\\users\\neeriri\\bd-khametovnail-laba5\\laba4\\views\\clienteditwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|solutionrelative:views\\clienteditwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|c:\\users\\neeriri\\bd-khametovnail-laba5\\laba4\\views\\clienteditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|solutionrelative:views\\clienteditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|c:\\users\\neeriri\\bd-khametovnail-laba5\\laba4\\views\\clientswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|solutionrelative:views\\clientswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|c:\\users\\neeriri\\bd-khametovnail-laba5\\laba4\\models\\marketingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|solutionrelative:models\\marketingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\models\\campaigns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|solutionrelative:models\\campaigns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\views\\clientswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{562E7379-7962-47CD-A5D6-B31DFB4ED69B}|Laba4.csproj|solutionrelative:views\\clientswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,11 +46,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClientEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Views\\ClientEditWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\ClientEditWindow.xaml",
+              "ToolTip": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Views\\ClientEditWindow.xaml",
+              "RelativeToolTip": "Views\\ClientEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-24T12:24:02.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClientEditWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Views\\ClientEditWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\ClientEditWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Views\\ClientEditWindow.xaml.cs",
+              "RelativeToolTip": "Views\\ClientEditWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T12:13:53.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ClientsWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Views\\ClientsWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\ClientsWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Views\\ClientsWindow.xaml.cs",
+              "RelativeToolTip": "Views\\ClientsWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T12:12:20.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T11:29:59.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -34,15 +113,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "MarketingDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Models\\MarketingDBContext.cs",
+              "RelativeDocumentMoniker": "Models\\MarketingDBContext.cs",
+              "ToolTip": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Models\\MarketingDBContext.cs",
+              "RelativeToolTip": "Models\\MarketingDBContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T11:29:59.333Z",
+              "WhenOpened": "2026-04-24T11:51:41.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ClientsWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Views\\ClientsWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\ClientsWindow.xaml",
+              "ToolTip": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Views\\ClientsWindow.xaml",
+              "RelativeToolTip": "Views\\ClientsWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-24T11:51:02.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Campaigns.cs",
+              "DocumentMoniker": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Models\\Campaigns.cs",
+              "RelativeDocumentMoniker": "Models\\Campaigns.cs",
+              "ToolTip": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\Models\\Campaigns.cs",
+              "RelativeToolTip": "Models\\Campaigns.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T11:51:28.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\App.config",
+              "RelativeDocumentMoniker": "App.config",
+              "ToolTip": "C:\\Users\\Neeriri\\BD-KhametovNail-Laba5\\Laba4\\App.config",
+              "RelativeToolTip": "App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-04-24T11:58:29.78Z",
               "EditorCaption": ""
             }
           ]

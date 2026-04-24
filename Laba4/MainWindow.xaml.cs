@@ -1,7 +1,5 @@
 using System;
 using System.Windows;
-using Laba4.Views;
-
 namespace Laba4
 {
     public partial class MainWindow : Window
@@ -25,11 +23,6 @@ namespace Laba4
             this.Close();
         }
 
-        private void ButtonCampaigns_Click(object sender, RoutedEventArgs e)
-        {
-            var campaignsWindow = new CampaignsWindow();
-            campaignsWindow.Show();
-            this.Close();
-        }
+        
     }
 }
