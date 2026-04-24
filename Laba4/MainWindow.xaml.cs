@@ -24,12 +24,5 @@ namespace Laba4
             employeesWindow.Show();
             this.Close();
         }
-
-        private void ButtonCampaigns_Click(object sender, RoutedEventArgs e)
-        {
-            var campaignsWindow = new CampaignsWindow();
-            campaignsWindow.Show();
-            this.Close();
-        }
     }
 }

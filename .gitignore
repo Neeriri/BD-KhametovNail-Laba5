@@ -1,35 +1,12 @@
 ```
+# Dependencies
+packages/
+
 # Build artifacts
-bin/
-obj/
-Debug/
-Release/
 *.dll
 *.exe
 *.pdb
-*.userprefs
-
-# Dependencies
-packages/
-packages.config
-**/packages/
-
-# Logs
-*.log
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Editors
-.vs/
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS generated files
-.DS_Store
-Thumbs.db
+*.nupkg
+bin/
+obj/
 ```
